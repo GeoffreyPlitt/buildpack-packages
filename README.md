@@ -31,21 +31,20 @@ https://s3.amazonaws.com/buildpack-zip/zip-3.0.tar.gz
 The above would install `s3cmd`, `exiftool`, and `zip` from S3 sources.
 
 The script is very simple: it just downloads and uncompresses the given
-packages into `/app/vendor` and then adds `/app/vendor/<package name>/bin` to
+packages into `/app/vendor` and then adds `/app/vendor/<package name>` to
 `PATH`.
 
 The packages are expected to be compressed in a specific way: they should
-uncompress to a folder named the same as the filename, with a folder called
-`/bin` under it which will be put on `PATH`. For instance:
+uncompress to a folder named the same as the filename, which will be put on
+`PATH`. For instance:
 
 ```
 tar xvf zip-3.0.tar.gz
 ./zip-3.0/
-./zip-3.0/bin/
-./zip-3.0/bin/zip
-./zip-3.0/bin/zipsplit
-./zip-3.0/bin/zipnote
-./zip-3.0/bin/zipcloak
+./zip-3.0/zip
+./zip-3.0/zipsplit
+./zip-3.0/zipnote
+./zip-3.0/zipcloak
 ```
 
 Testing
