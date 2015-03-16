@@ -16,7 +16,7 @@ cd $TARGET_DIR
 path="\$PATH"
 for package in $(cat $BUILD_DIR/.packages); do
   name=$(echo "$package" | sed 's|.*/\(.*\)\.tar\.gz|\1|')
-  path="$path:$APP_DIR/vendor/$name/bin"
+  path="$path:$APP_DIR/vendor/$name"
   
   echo "       $name"  
   curl --fail --retry 3 --retry-delay 1 --connect-timeout 3 $package -s -L -o - | tar zxf -
